@@ -17,9 +17,9 @@ export default class Horus extends React.Component {
     this.state={
       page  : 'Home',
       room  : 'homescreen2.jpg',
-      limit : 2,
-      space : 2,
-      start : 0,
+      limit : 3,
+      space : 3,
+      start : 1,
       index : 0,
       isSelect: false
     }
@@ -257,7 +257,7 @@ export default class Horus extends React.Component {
              </VrButton>
              <VrButton onClick={()=> this.bookseat()}
                style={{
-                 transform: [{translate: [-8,3.3,-5.7]},
+                 transform: [{translate: [-8,3,-5.7]},
                              {rotateX: 0},
                              {rotateY: 110}]
                }}>

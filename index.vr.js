@@ -20,7 +20,8 @@ export default class Horus extends React.Component {
       limit : 2,
       space : 2,
       start : 0,
-      index : 0
+      index : 0,
+      isSelect: false
     }
   }
 
@@ -95,6 +96,11 @@ export default class Horus extends React.Component {
     console.log(this.state.start);
   }
 
+  bookseat(){
+    this.setState({
+      isSelect: true
+    })
+  }
 
   render() {
     return (
@@ -200,33 +206,33 @@ export default class Horus extends React.Component {
             <VrButton onClick={()=> this.move('2','2.jpg')}
                style={{
                  opacity: 0.5,
-                 transform: [{translate: [-12.2, -3, -3]},
+                 transform: [{translate: [-12.2, -3, -4.7]},
                              {rotateX: 0},
-                             {rotateY: 30}]}}>
+                             {rotateY: 60}]}}>
                <Image
-                source={asset('Up-Arrow.png')}
+                source={asset('up-arrow.png')}
                 style={{width: 2.5,
                         height: 2.5}}/>
              </VrButton>
-             <VrButton onClick={()=> this.move('Restaurant','Restaurant3.jpg')}
+             <VrButton onClick={()=> this.bookseat()}
                style={{
-                 transform: [{translate: [-12,3,-2]},
+                 transform: [{translate: [-8,3,-4.5]},
                              {rotateX: 0},
-                             {rotateY: 170}]
+                             {rotateY: 110}]
                }}>
-             <Image source={asset('Available.png')}
+             <Image source={asset('4C.png')}
                style={{
-                 width: 1,
-                 height: 1,
+                 width: 0.3,
+                 height: 0.3,
                }} />
              </VrButton>
-             <VrButton onClick={()=> this.move('Restaurant','Restaurant3.jpg')}
+             <VrButton onClick={()=> this.bookseat()}
                style={{
-                 transform: [{translate: [-8,3,-2]},
+                 transform: [{translate: [-8,3.3,1.8]},
                              {rotateX: 0},
-                             {rotateY: 170}]
+                             {rotateY: 150}]
                }}>
-             <Image source={asset('Available.png')}
+             <Image source={asset('1A.png')}
                style={{
                  width: 1,
                  height: 1,
@@ -238,13 +244,97 @@ export default class Horus extends React.Component {
         {(this.state.page === '2')
          ? <View>
             {this.backButton()}
+            <VrButton onClick={()=> this.move('3','3.jpg')}
+               style={{
+                 opacity: 0.5,
+                 transform: [{translate: [-12.2, -2.7, -5.9]},
+                             {rotateX: 0},
+                             {rotateY: 60}]}}>
+               <Image
+                source={asset('up-arrow.png')}
+                style={{width: 2.5,
+                        height: 2.5}}/>
+             </VrButton>
+             <VrButton onClick={()=> this.bookseat()}
+               style={{
+                 transform: [{translate: [-8,3.3,-5.7]},
+                             {rotateX: 0},
+                             {rotateY: 110}]
+               }}>
+             <Image source={asset('4C.png')}
+               style={{
+                 width: 0.6,
+                 height: 0.6,
+               }} />
+             </VrButton>
+             <VrButton onClick={()=> this.bookseat()}
+               style={{
+                 transform: [{translate: [-8,3,15.5]},
+                             {rotateX: 0},
+                             {rotateY: 150}]
+               }}>
+             <Image source={asset('1A.png')}
+               style={{
+                 width: 2.2,
+                 height: 2.2,
+               }} />
+             </VrButton>
            </View>
          : null
         }
         {(this.state.page === '3')
-         ? <View>
-            {this.backButton()}
-           </View>
+          ? <View>
+              {this.backButton()}
+              <VrButton onClick={()=> this.move('4','4.jpg')}
+                 style={{
+                   opacity: 0.5,
+                   transform: [{translate: [-12.2, -2.7, -3.4]},
+                               {rotateX: 0},
+                               {rotateY: 60}]}}>
+                 <Image
+                  source={asset('up-arrow.png')}
+                  style={{width: 2.5,
+                          height: 2.5}}/>
+               </VrButton>
+               {(this.state.isSelect === false)
+                ? <VrButton onClick={()=> this.bookseat()}
+                     style={{
+                       transform: [{translate: [-8,3.2,-5]},
+                                   {rotateX: 0},
+                                   {rotateY: 110}]
+                     }}>
+                   <Image source={asset('4C.png')}
+                     style={{
+                       width: 1.5,
+                       height: 1.5,
+                     }} />
+                   </VrButton>
+                 : <VrButton
+                      style={{
+                        transform: [{translate: [-8,3.2,-5]},
+                                    {rotateX: 0},
+                                    {rotateY: 110}]
+                      }}>
+                    <Image source={asset('AVAILABLE.png')}
+                      style={{
+                        width: 1.5,
+                        height: 1.5,
+                      }} />
+                    </VrButton>
+               }
+               <VrButton onClick={()=> this.bookseat()}
+                 style={{
+                   transform: [{translate: [5.5,4,8.2]},
+                               {rotateX: -15},
+                               {rotateY: 180}]
+                 }}>
+               <Image source={asset('1A.png')}
+                 style={{
+                   width: 1,
+                   height: 1,
+                 }} />
+               </VrButton>
+             </View>
          : null
         }
       </View>

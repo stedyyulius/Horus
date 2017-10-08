@@ -94,13 +94,14 @@ export default class Horus extends React.Component {
   }
 
   bookseat(){
+    this.setState({
+      isSelect: true
+    })
     axios.post(`http://localhost:3000/sendEmail`,{
-      image: 'https://i.imgur.com/ia5BjIy.jpg'
+      image: 'https://i.imgur.com/VQ972Fv.jpg'
     })
     .then(res=>{
-      this.setState({
-        isSelect: true
-      })
+      console.log('success')
     })
   }
 

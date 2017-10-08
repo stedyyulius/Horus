@@ -2,7 +2,6 @@ var express = require('express');
 var router = express.Router();
 var nodemailer = require("nodemailer");
 var smtpTransport = require('nodemailer-smtp-transport');
-require('dotenv').config()
 var transport = nodemailer.createTransport(smtpTransport({
     service: 'gmail',
     auth: {

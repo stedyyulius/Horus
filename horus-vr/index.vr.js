@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios'
 import {
   AppRegistry,
   asset,
@@ -52,10 +53,6 @@ export default class Horus extends React.Component {
     )
   }
 
-  seatIndicator(){
-
-  }
-
   flights(){
     let flights = []
     for(let i =this.state.start; i < this.state.limit; i++){
@@ -97,8 +94,13 @@ export default class Horus extends React.Component {
   }
 
   bookseat(){
-    this.setState({
-      isSelect: true
+    axios.post(`http://localhost:3000/sendEmail`,{
+      image: 'https://i.imgur.com/ia5BjIy.jpg'
+    })
+    .then(res=>{
+      this.setState({
+        isSelect: true
+      })
     })
   }
 
